@@ -21,6 +21,7 @@ body{
   border-bottom: 2px dotted #ACC1C3;
   border-left: 2px dotted #ACC1C3;
   border-radius: 10px;
+  
 }
 
 sub{
@@ -90,7 +91,7 @@ input::placeholder {
 @media (max-width: 600px){
   .titulo{
     font-size: 1.4rem;
-    margin-top: 50px;
+    margin: 50px 15px;
   }
   sub{
     font-size: .7rem;
