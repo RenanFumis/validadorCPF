@@ -1,5 +1,3 @@
-// Arquivo validar-cpf.js 
-
 export default class ValidarCpf{
 
   constructor(element){
