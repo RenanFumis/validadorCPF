@@ -3,7 +3,10 @@
 export default class ValidarCpf{
 
   constructor(element){
-    this.element = element 
+    this.element = element
+    if (performance === 1) {
+      history.replaceState({}, document.title, window.location.pathname);
+    } 
   }
   limpar(cpf){
    return cpf.replace(/\D/g, '')
@@ -23,8 +26,11 @@ export default class ValidarCpf{
   }
 
   validaNaMudanca(cpfElement){
-    if(this.validar(cpfElement.value)){
-      cpfElement.value = this.padronizar(cpfElement.value)
+    const cpfDigitado = cpfElement.value
+    const cpfLimpo = this.limpar(cpfDigitado)
+
+    if(cpfLimpo.length === 11 && this.validar(cpfLimpo)){
+      cpfElement.value = this.padronizar(cpfLimpo)
       cpfElement.classList.add('valido')
       cpfElement.classList.remove('erro')
       cpfElement.nextElementSibling.classList.remove('ativar')
@@ -36,8 +42,8 @@ export default class ValidarCpf{
   }
 
   adicionarEvento(){
-    this.element.addEventListener('change', () => {
-      this.validaNaMudanca(this.element)
+    this.element.addEventListener('input', () => {
+        this.validaNaMudanca(this.element)
     })
   }
 
